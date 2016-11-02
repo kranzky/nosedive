@@ -3,9 +3,12 @@ import WebFont from 'webfontloader'
 
 export default class extends Phaser.State {
   init () {
-    this.stage.backgroundColor = '#EDEEC9'
+    this.stage.backgroundColor = '#87616D'
     this.fontsReady = false
     this.fontsLoaded = this.fontsLoaded.bind(this)
+    this.stage.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL
+    this.stage.scale.pageAlignVertically = true
+    this.stage.scale.pageAlignHorizontally = true
   }
 
   preload () {
@@ -32,5 +35,4 @@ export default class extends Phaser.State {
   fontsLoaded () {
     this.fontsReady = true
   }
-
 }
