@@ -9,7 +9,7 @@ export default class extends Phaser.State {
     this.loaderBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'loaderBar')
     this.loaderBar.anchor.setTo(0.5)
     this.load.setPreloadSprite(this.loaderBar)
-    this.load.image('mushroom', 'assets/images/mushroom2.png')
+    this.load.image('mushroom', 'images/mushroom2.png')
   }
 
   create () {

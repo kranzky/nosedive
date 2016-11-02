@@ -21,8 +21,8 @@ module.exports = {
   devtool: 'source-map',
   output: {
     pathinfo: true,
-    path: path.resolve(__dirname, '.'),
-    publicPath: '.',
+    path: path.resolve(__dirname, './www/js'),
+    publicPath: './www/js',
     filename: 'nosedive.js'
   },
   watch: true,
@@ -33,7 +33,7 @@ module.exports = {
       port: process.env.PORT || 3000,
       open: false,
       server: {
-        baseDir: ['./', './build']
+        baseDir: ['./www']
       }
     })
   ],

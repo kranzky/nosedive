@@ -10,8 +10,8 @@ export default class extends Phaser.State {
   }
 
   preload () {
-    this.load.image('loaderBg', './assets/images/loader-bg.png')
-    this.load.image('loaderBar', './assets/images/loader-bar.png')
+    this.load.image('loaderBg', 'images/loader-bg.png')
+    this.load.image('loaderBar', 'images/loader-bar.png')
   }
 
   render () {
