@@ -8,7 +8,7 @@ import GameState from './states/Game'
 
 class Game extends Phaser.Game {
   constructor () {
-    super(450, 800, Phaser.AUTO, 'content', null, false, false, null)
+    super(450, 800, Phaser.AUTO, 'content', null, false, true, null)
 
     this.state.add('Boot', BootState, false)
     this.state.add('Splash', SplashState, false)
