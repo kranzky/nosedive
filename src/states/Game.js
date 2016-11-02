@@ -1,16 +1,16 @@
 import Phaser from 'phaser'
 import Mushroom from '../sprites/Mushroom'
-import {setResponsiveWidth} from '../utils'
 
 export default class extends Phaser.State {
   init () {}
   preload () {}
 
   create () {
-    let banner = this.add.text(this.game.world.centerX, this.game.height - 30, 'Phaser + ES6 + Webpack')
-    banner.font = 'Nunito'
-    banner.fontSize = 40
-    banner.fill = '#77BFA3'
+    let banner = this.add.text(this.game.world.centerX, this.game.height - 30, 'Rated 3 Stars')
+    banner.font = 'Lato-Hairline'
+    banner.fontSize = 70
+    banner.fontWeight = 300
+    banner.fill = '#222'
     banner.anchor.setTo(0.5)
 
     this.mushroom = new Mushroom({
@@ -20,8 +20,6 @@ export default class extends Phaser.State {
       asset: 'mushroom'
     })
 
-    // set the sprite width to 30% of the game width
-    setResponsiveWidth(this.mushroom, 30, this.game.world)
     this.game.add.existing(this.mushroom)
   }
 

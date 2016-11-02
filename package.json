@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "webpack",
-    "build": "webpack --config webpack.production.config.js",
+    "build": "webpack",
     "test": "standard"
   },
   "license": "UNLICENSE",
@@ -17,8 +17,13 @@
     "babel-preset-es2015": "^6.14.0",
     "browser-sync": "^2.15.0",
     "browser-sync-webpack-plugin": "^1.1.2",
+    "css-loader": "^0.25.0",
     "expose-loader": "^0.7.1",
+    "file-loader": "^0.9.0",
+    "node-sass": "^3.10.1",
+    "sass-loader": "^4.0.2",
     "standard": "^8.0.0",
+    "style-loader": "^0.13.1",
     "webfontloader": "^1.6.26",
     "webpack": "^1.13.2"
   },

@@ -1,8 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
-
-// Phaser webpack config
 var phaserModule = path.join(__dirname, '/node_modules/phaser/')
 var phaser = path.join(phaserModule, 'build/custom/phaser-split.js')
 var pixi = path.join(phaserModule, 'build/custom/pixi.js')
@@ -16,15 +14,16 @@ module.exports = {
   entry: {
     app: [
       'babel-polyfill',
-      path.resolve(__dirname, 'src/main.js')
+      path.resolve(__dirname, 'src/main.js'),
+      path.resolve(__dirname, 'src/css/game.sass')
     ]
   },
   devtool: 'source-map',
   output: {
     pathinfo: true,
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: './dist/',
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, '.'),
+    publicPath: '.',
+    filename: 'nosedive.js'
   },
   watch: true,
   plugins: [
@@ -43,7 +42,9 @@ module.exports = {
       { test: /\.js$/, loader: 'babel', include: path.join(__dirname, 'src') },
       { test: /pixi\.js/, loader: 'expose?PIXI' },
       { test: /phaser-split\.js$/, loader: 'expose?Phaser' },
-      { test: /p2\.js/, loader: 'expose?p2' }
+      { test: /p2\.js/, loader: 'expose?p2' },
+      { test: /\.sass$/, loaders: ['style', 'css', 'sass'] },
+      { test: /\.(eot|svg|ttf|woff|woff2)$/, loaders: ['file?name=../fonts/[name].[ext]'] }
     ]
   },
   node: {
