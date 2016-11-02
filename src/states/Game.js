@@ -1,5 +1,6 @@
 import Phaser from 'phaser'
-import Mushroom from '../sprites/Mushroom'
+import Face from '../sprites/Face'
+import Star from '../sprites/Star'
 
 export default class extends Phaser.State {
   init () {}
@@ -13,14 +14,14 @@ export default class extends Phaser.State {
     banner.fill = '#222'
     banner.anchor.setTo(0.5)
 
-    this.mushroom = new Mushroom({
+    this.face = new Face({
       game: this.game,
       x: this.game.world.centerX,
       y: this.game.world.centerY,
-      asset: 'mushroom'
+      asset: 'face0'
     })
 
-    this.game.add.existing(this.mushroom)
+    this.game.add.existing(this.face)
   }
 
   render () {
