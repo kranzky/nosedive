@@ -46,7 +46,9 @@ export default class extends Phaser.State {
         this.stars.inc(direction.x, direction.y)
         break
       case this.swipe.DIRECTION_UP:
-        // transition if stars exist
+        if (this.stars.score() > 0) {
+          this.game.stateTransition.to('Done', true, false, this.stars.score())
+        }
         break
       }
     }

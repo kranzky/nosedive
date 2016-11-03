@@ -14,8 +14,15 @@ export default class extends Phaser.Sprite {
     this.value = 0
   }
 
-  value () {
+  score () {
     return this.value
+  }
+
+  setScore (score) {
+    this.value = score
+    for (var i of [0,1,2,3,4]) {
+      this.children[i].setActive(score > i)
+    }
   }
 
   inc (x, y) {

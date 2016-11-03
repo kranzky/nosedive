@@ -1,8 +1,15 @@
 import Phaser from 'phaser'
-import Swipe from 'phaser-swipe'
 
 import Face from '../sprites/Face'
-import Star from '../sprites/Star'
+import Stars from '../sprites/Stars'
+
+const sounds = {
+  1: "bell1",
+  2: "bell2",
+  3: "bell3",
+  4: "bell4",
+  5: "bell5"
+}
 
 export default class extends Phaser.State {
   init () {}
@@ -19,33 +26,24 @@ export default class extends Phaser.State {
     this.face = new Face({
       game: this.game,
       x: this.game.world.centerX,
-      y: 0.55 * this.game.world.centerY,
-      asset: 'face0'
+      y: 0.55 * this.game.world.centerY
     })
-
     this.game.add.existing(this.face)
 
-    this.star = new Star({
+    this.stars = new Stars({
       game: this.game,
       x: this.game.world.centerX,
-      y: 1.7 * this.game.world.centerY,
-      asset: 'star0'
+      y: 1.7 * this.game.world.centerY
     })
+    this.game.add.existing(this.stars)
 
-    this.game.add.existing(this.star)
-
-    this.swipe = new Swipe(this.game)
-    this.swipe.dragLength = 20
-    this.swipe.diagonalDisabled = true
+		this.face.setScore(this.score)
+		this.stars.setScore(this.score)
+    this.sound = new Phaser.Sound(this.game, sounds[this.score])
+    this.sound.play()
   }
 
-  render () {
-  }
-
-  update () {
-    let direction = this.swipe.check()
-    if (direction != null) {
-      console.log(direction)
-    }
+  init (score) {
+    this.score = score
   }
 }
