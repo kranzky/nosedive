@@ -4,7 +4,8 @@ import Phaser from 'phaser'
 
 import BootState from './states/Boot'
 import SplashState from './states/Splash'
-import GameState from './states/Game'
+import RateState from './states/Rate'
+import DoneState from './states/Done'
 
 class Game extends Phaser.Game {
   constructor () {
@@ -12,7 +13,8 @@ class Game extends Phaser.Game {
 
     this.state.add('Boot', BootState, false)
     this.state.add('Splash', SplashState, false)
-    this.state.add('Game', GameState, false)
+    this.state.add('Rate', RateState, false)
+    this.state.add('Done', DoneState, false)
 
     this.state.start('Boot')
   }
