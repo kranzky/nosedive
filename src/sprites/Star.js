@@ -6,9 +6,8 @@ const frames = {
 }
 
 export default class extends Phaser.Sprite {
-  constructor ({ game, x, y, asset }) {
-    super(game, x, y, asset)
-    this.game = game
+  constructor ({ game, x, y }) {
+    super(game, x, y)
     this.anchor.setTo(0.5)
     this.setActive(false)
     this.scale.set(0.6)
