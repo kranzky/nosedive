@@ -6,10 +6,10 @@ import Stars from '../sprites/Stars'
 
 export default class extends Phaser.State {
   create () {
-    let background = this.game.add.graphics(0, 0);
-    background.beginFill(0x87616D, 1);
-    background.drawRect(0, 0, this.game.width, this.game.height);
-    background.endFill();
+    let background = this.game.add.graphics(0, 0)
+    background.beginFill(0x87616D, 1)
+    background.drawRect(0, 0, this.game.width, this.game.height)
+    background.endFill()
 
     let banner = this.add.text(this.game.world.centerX, this.game.world.centerY, 'Nosedive')
     banner.font = 'Lato-Hairline'
