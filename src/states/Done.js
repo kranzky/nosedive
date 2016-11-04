@@ -1,5 +1,6 @@
 import Phaser from 'phaser'
 
+import Touch from '../helpers/Touch'
 import Face from '../sprites/Face'
 import Stars from '../sprites/Stars'
 
@@ -12,8 +13,9 @@ const sounds = {
 }
 
 export default class extends Phaser.State {
-  init () {}
-  preload () {}
+  init (score) {
+    this.score = score
+  }
 
   create () {
     let banner = this.add.text(this.game.world.centerX, this.game.world.centerY, 'Nosedive')
@@ -30,6 +32,8 @@ export default class extends Phaser.State {
     })
     this.game.add.existing(this.face)
 
+    this.tween = this.game.add.tween(this.face.scale).to({ x: 2.1, y: 2.1 }, 100, Phaser.Easing.Circular.InOut);
+
     this.stars = new Stars({
       game: this.game,
       x: this.game.world.centerX,
@@ -41,9 +45,19 @@ export default class extends Phaser.State {
 		this.stars.setScore(this.score)
     this.sound = new Phaser.Sound(this.game, sounds[this.score])
     this.sound.play()
+
+    this.touch = new Touch(game)
   }
 
-  init (score) {
-    this.score = score
+  update () {
+    this.touch.update()
+    if (this.touch.isTapped()) {
+      if (this.touch.within(this.face.getBounds())) {
+        this.sound.play()
+        this.tween.start();
+      } else {
+        this.game.stateTransition.to('Rate', true, false)
+      }
+    }
   }
 }

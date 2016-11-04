@@ -5,9 +5,6 @@ import Face from '../sprites/Face'
 import Stars from '../sprites/Stars'
 
 export default class extends Phaser.State {
-  init () {}
-  preload () {}
-
   create () {
     let banner = this.add.text(this.game.world.centerX, this.game.world.centerY, 'Nosedive')
     banner.font = 'Lato-Hairline'

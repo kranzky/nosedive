@@ -8,6 +8,7 @@ export default class extends Phaser.State {
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL
     game.scale.pageAlignVertically = true
     game.scale.pageAlignHorizontally = true
+    game.input.maxPointers = 1
     game.stateTransition = game.plugins.add(Phaser.Plugin.StateTransition)
     game.stateTransition.configure({
       duration: Phaser.Timer.SECOND * 1.5,
