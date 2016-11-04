@@ -9,7 +9,7 @@ export default class extends Phaser.State {
     this.loaderBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'loaderBar')
     this.loaderBar.anchor.setTo(0.5)
     this.load.setPreloadSprite(this.loaderBar)
-    this.load.image('face0', 'images/0face.png')
+    this.load.image('face0', 'images/bear.png')
     this.load.image('face1', 'images/1face.png')
     this.load.image('face2', 'images/2face.png')
     this.load.image('face3', 'images/3face.png')

@@ -6,6 +6,11 @@ import Stars from '../sprites/Stars'
 
 export default class extends Phaser.State {
   create () {
+    let background = this.game.add.graphics(0, 0);
+    background.beginFill(0x87616D, 1);
+    background.drawRect(0, 0, this.game.width, this.game.height);
+    background.endFill();
+
     let banner = this.add.text(this.game.world.centerX, this.game.world.centerY, 'Nosedive')
     banner.font = 'Lato-Hairline'
     banner.fontSize = 70
@@ -42,6 +47,13 @@ export default class extends Phaser.State {
         break
       case Phaser.KeyCode.UP:
         if (this.touch.isSwiping() && direction.y > this.game.world.centerY && this.stars.score() > 0) {
+          this.game.stateTransition.configure({
+            duration: Phaser.Timer.SECOND * 0.8,
+            ease: Phaser.Easing.Bounce.Out,
+              properties: {
+                y: "-800",
+              }
+          })
           this.game.stateTransition.to('Done', true, false, this.stars.score())
         }
         break
