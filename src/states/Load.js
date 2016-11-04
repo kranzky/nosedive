@@ -4,6 +4,10 @@ export default class extends Phaser.State {
   init () {}
 
   preload () {
+    let background = this.game.add.graphics(0, 0)
+    background.beginFill(0, 1)
+    background.drawRect(0, 0, this.game.width, this.game.height)
+    background.endFill()
     this.loaderBg = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'loaderBg')
     this.loaderBg.anchor.setTo(0.5)
     this.loaderBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'loaderBar')
@@ -22,9 +26,17 @@ export default class extends Phaser.State {
     this.load.audio('bell3', 'sounds/nosedive_3_stars.mp3')
     this.load.audio('bell4', 'sounds/nosedive_4_stars.mp3')
     this.load.audio('bell5', 'sounds/nosedive_5_stars.mp3')
+    window.hideSpinner()
   }
 
   create () {
-    this.state.start('Rate')
+    this.game.stateTransition.configure({
+      duration: Phaser.Timer.SECOND * 0.3,
+      ease: Phaser.Easing.Linear.None,
+        properties: {
+          alpha: 0
+        }
+    })
+    this.game.stateTransition.to('Rate', true, false)
   }
 }
