@@ -58,12 +58,16 @@ export default class extends Phaser.State {
 
     let fade = this.game.add.tween(overlay)
     fade.to({ alpha: 0 }, 400, null)
-    fade.onComplete.add(this.surprise, this)
+    fade.onComplete.add(this.decode, this)
 
     this.game.time.events.add(400, fade.start, fade)
 
-    this.sound = new Phaser.Sound(this.game, sounds[this.score])
     this.touch = new Touch(game)
+  }
+
+  decode () {
+    this.sound = new Phaser.Sound(this.game, sounds[this.score])
+    game.sound.setDecodedCallback([ this.sound ], this.surprise, this)
   }
 
   surprise () {
