@@ -22,7 +22,6 @@
     "file-loader": "^0.9.0",
     "node-sass": "^3.10.1",
     "phaser-state-transition-plugin": "^0.1.6",
-    "phaser-swipe": "^1.0.4",
     "sass-loader": "^4.0.2",
     "standard": "^8.0.0",
     "style-loader": "^0.13.1",

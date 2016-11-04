@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
-import Swipe from 'phaser-swipe'
 
+import Touch from '../helpers/Touch'
 import Face from '../sprites/Face'
 import Stars from '../sprites/Stars'
 
@@ -27,27 +27,24 @@ export default class extends Phaser.State {
     })
     this.game.add.existing(this.stars)
 
-    this.swipe = new Swipe(this.game)
-    this.swipe.dragLength = 20
-    this.swipe.diagonalDisabled = true
+    this.touch = new Touch(game)
   }
 
   update () {
-    let direction = this.swipe.check()
-    if (direction != null) {
-      switch(direction.direction) {
-      case this.swipe.DIRECTION_LEFT:
+    this.touch.update()
+    let direction = this.touch.getDirection()
+    switch(direction.key) {
+      case Phaser.KeyCode.LEFT:
         this.stars.dec(direction.x, direction.y)
         break
-      case this.swipe.DIRECTION_RIGHT:
+      case Phaser.KeyCode.RIGHT:
         this.stars.inc(direction.x, direction.y)
         break
-      case this.swipe.DIRECTION_UP:
-        if (this.stars.score() > 0) {
+      case Phaser.KeyCode.UP:
+        if (this.touch.isSwiping() && direction.y > this.game.world.centerY && this.stars.score() > 0) {
           this.game.stateTransition.to('Done', true, false, this.stars.score())
         }
         break
-      }
     }
   }
 }
