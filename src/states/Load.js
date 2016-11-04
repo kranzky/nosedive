@@ -21,11 +21,11 @@ export default class extends Phaser.State {
     this.load.image('face5', 'images/5face.png')
     this.load.image('star0', 'images/nostar.png')
     this.load.image('star1', 'images/star.png')
-    this.load.audio('bell1', 'sounds/nosedive_1_star.mp3')
-    this.load.audio('bell2', 'sounds/nosedive_2_stars.mp3')
-    this.load.audio('bell3', 'sounds/nosedive_3_stars.mp3')
-    this.load.audio('bell4', 'sounds/nosedive_4_stars.mp3')
-    this.load.audio('bell5', 'sounds/nosedive_5_stars.mp3')
+    this.load.audio('bell1', ['sounds/nosedive_1_star.mp3', 'sounds/nosedive_1_star.m4a'])
+    this.load.audio('bell2', ['sounds/nosedive_2_stars.mp3', 'sounds/nosedive_2_stars.m4a'])
+    this.load.audio('bell3', ['sounds/nosedive_3_stars.mp3', 'sounds/nosedive_3_stars.m4a'])
+    this.load.audio('bell4', ['sounds/nosedive_4_stars.mp3', 'sounds/nosedive_4_stars.m4a'])
+    this.load.audio('bell5', ['sounds/nosedive_5_stars.mp3', 'sounds/nosedive_5_stars.m4a'])
     window.hideSpinner()
   }
 
