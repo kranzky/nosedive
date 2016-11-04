@@ -12,9 +12,9 @@ export default class extends Phaser.State {
     background.endFill()
 
     let banner = this.add.text(this.game.world.centerX, this.game.world.centerY, 'Nosedive')
-    banner.font = 'Lato-Hairline'
+    banner.font = 'Lato'
     banner.fontSize = 70
-    banner.fontWeight = 300
+    banner.fontWeight = 100
     banner.fill = '#222'
     banner.anchor.setTo(0.5, 0)
 
