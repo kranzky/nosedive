@@ -51,23 +51,23 @@ export default class extends Phaser.State {
       y: 1.7 * this.game.world.centerY
     })
 
-    let overlay = this.game.add.graphics(0, 0)
-    overlay.beginFill(0, 1)
-    overlay.drawRect(0, 0, this.game.width, this.game.height)
-    overlay.endFill()
+    this.overlay = this.game.add.graphics(0, 0)
+    this.overlay.beginFill(0, 1)
+    this.overlay.drawRect(0, 0, this.game.width, this.game.height)
+    this.overlay.endFill()
 
-    let fade = this.game.add.tween(overlay)
-    fade.to({ alpha: 0 }, 400, null)
-    fade.onComplete.add(this.decode, this)
-
-    this.game.time.events.add(400, fade.start, fade)
+    this.sound = this.game.add.audio(sounds[this.score])
+    this.game.sound.setDecodedCallback([ this.sound ], this.fade, this)
 
     this.touch = new Touch(game)
   }
 
-  decode () {
-    this.sound = new Phaser.Sound(this.game, sounds[this.score])
-    game.sound.setDecodedCallback([ this.sound ], this.surprise, this)
+  fade () {
+    let fade = this.game.add.tween(this.overlay)
+    fade.to({ alpha: 0 }, 400, null)
+    fade.onComplete.add(this.surprise, this)
+    this.game.time.events.add(400, fade.start, fade)
+
   }
 
   surprise () {
