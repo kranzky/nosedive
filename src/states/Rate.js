@@ -7,7 +7,7 @@ import Stars from '../sprites/Stars'
 export default class extends Phaser.State {
   create () {
     let background = this.game.add.graphics(0, 0)
-    background.beginFill(0x87616D, 1)
+    background.beginFill(0xE09E91, 1)
     background.drawRect(0, 0, this.game.width, this.game.height)
     background.endFill()
 
@@ -15,7 +15,7 @@ export default class extends Phaser.State {
     banner.font = 'Lato'
     banner.fontSize = 70
     banner.fontWeight = 100
-    banner.fill = '#222'
+    banner.fill = '#553965'
     banner.anchor.setTo(0.5, 0)
 
     this.face = new Face({

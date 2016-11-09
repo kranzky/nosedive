@@ -19,7 +19,7 @@ export default class extends Phaser.State {
 
   create () {
     let background = this.game.add.graphics(0, 0)
-    background.beginFill(0x87616D, 1)
+    background.beginFill(0xE09E91, 1)
     background.drawRect(0, 0, this.game.width, this.game.height)
     background.endFill()
 
@@ -27,7 +27,7 @@ export default class extends Phaser.State {
     banner.font = 'Lato'
     banner.fontSize = 70
     banner.fontWeight = 100
-    banner.fill = '#333'
+    banner.fill = '#553965'
     banner.anchor.setTo(0.5, 0)
 
     banner = this.add.text(this.game.world.centerX, this.game.world.centerY + 60, this.score + ' Stars')
